@@ -1,2 +1,3 @@
 https://swapi.co
 https://starwars-visualguide.com
+https://bootswatch.com
