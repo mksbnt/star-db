@@ -43,6 +43,30 @@ export default class SwapiService {
     return item.url.match(idRegExp)[1];
   }
 
+  _transformPerson(person) {
+    return {
+      id: this._extractId(person),
+      name: person.name,
+      gender: person.gender,
+      birthYear: person.birthYear,
+      eyeColor: person.eyeColor
+    };
+  }
+
+  _transformStarship(starship) {
+    return {
+      id: this._extractId(starship),
+      name: starship.name,
+      model: starship.model,
+      manufacturer: starship.manufacturer,
+      costInCredits: starship.costInCredits,
+      lenght: starship.lenght,
+      crew: starship.crew,
+      passengers: starship.passengers,
+      cargoCapacity: starship.cargoCapacity
+    };
+  }
+
   _transformPlanet(planet) {
     return {
       id: this._extractId(planet),
