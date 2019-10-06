@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import "./person-details.css";
+import './person-details.css';
 import SwapiService from "../../services/swapi-service";
 import ErrorButton from "../error-button/error-button";
 
 export default class PersonDetails extends Component {
+
   swapiService = new SwapiService();
 
   state = {
@@ -27,26 +28,28 @@ export default class PersonDetails extends Component {
       return;
     }
 
-    this.swapiService.getPerson(personId).then(person => {
-      this.setState({ person });
-    });
+    this.swapiService
+      .getPerson(personId)
+      .then((person) => {
+        this.setState({ person });
+      });
   }
 
   render() {
+
     const { person } = this.state;
     if (!person) {
       return <span>Select a person from a list</span>;
     }
 
-    const { id, name, gender, birthYear, eyeColor } = person;
+    const { id, name, gender,
+              birthYear, eyeColor } = person;
 
     return (
       <div className="person-details card">
-        <img
-          className="person-image"
+        <img className="person-image"
           src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-          alt="character"
-        />
+          alt="character"/>
 
         <div className="card-body">
           <h4>{name}</h4>
@@ -67,6 +70,6 @@ export default class PersonDetails extends Component {
           <ErrorButton />
         </div>
       </div>
-    );
+    )
   }
 }
